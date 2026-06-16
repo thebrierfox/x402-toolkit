@@ -1,0 +1,44 @@
+{
+  "name": "x402-toolkit",
+  "version": "0.1.0",
+  "description": "A zero-config x402 payment client for AI agents — wallet management, capability discovery, and 210+ pre-wired data tools via x402 protocol on Base",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "x402-toolkit": "src/cli.js"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./wallet": "./src/wallet/index.js",
+    "./payment": "./src/payment/index.js",
+    "./defaults": "./src/defaults/index.js",
+    "./mcp": "./src/mcp.js",
+    "./templates": "./src/templates/index.js"
+  },
+  "scripts": {
+    "start": "node src/mcp.js",
+    "test": "node --experimental-vm-modules tests/run.js",
+    "build": "echo 'ESM, no build step required'"
+  },
+  "keywords": ["x402", "mcp", "ai-agent", "web3-payments", "stall", "base", "usdc", "tools"],
+  "author": {
+    "name": "IntuiTek",
+    "url": "https://intuitek.ai"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thebrierfox/x402-toolkit.git"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@x402/core": "^2.14.0",
+    "@x402/evm": "^2.14.0",
+    "viem": "^2.0.0",
+    "node-cron": "^3.0.3"
+  },
+  "optionalDependencies": {
+    "@coinbase/cdp-sdk": "^0.18.0"
+  }
+}
