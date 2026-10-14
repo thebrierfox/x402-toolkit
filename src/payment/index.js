@@ -58,12 +58,11 @@ export async function x402Fetch(url, account, opts = {}) {
   const encoded = Buffer.from(JSON.stringify(paymentPayload)).toString("base64");
 
   // Step 5: Retry with payment
+  const retryHeaders = new Headers(fetchInit.headers);
+  retryHeaders.set("PAYMENT-SIGNATURE", encoded);
   const resp = await fetch(url, {
     ...fetchInit,
-    headers: {
-      ...fetchInit.headers,
-      "PAYMENT-SIGNATURE": encoded,
-    },
+    headers: retryHeaders,
   });
 
   if (!resp.ok) {

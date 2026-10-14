@@ -17,7 +17,8 @@
   },
   "scripts": {
     "start": "node src/mcp.js",
-    "test": "node --experimental-vm-modules tests/run.js",
+    "test": "node --experimental-vm-modules tests/run.js && npm run test:payment",
+    "test:payment": "node --experimental-vm-modules --test tests/payment-retry.test.js",
     "build": "echo 'ESM, no build step required'"
   },
   "keywords": ["x402", "mcp", "ai-agent", "web3-payments", "stall", "base", "usdc", "tools"],
